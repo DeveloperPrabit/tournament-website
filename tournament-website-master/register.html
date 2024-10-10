@@ -18,7 +18,7 @@
     GAMERS DON'T DIE, <i style="color:#ff1c07;font-family:'Chiller','Bradley Hand ITC','Curlz MT';font-size:100%;font-weight:400;">They Respawn!</i>
   </header>
   <br><br>
-  <div class="jumbotron yes">
+  <div class="jumbotron yes" id="formContainer">
     <div class="container">
       <form id="formall" action="https://formspree.io/f/mnnqaear" method="POST">
         <fieldset>
@@ -35,5 +35,36 @@
   <div class="regs">
     <h4 style="color: #ffc107;">A max of <b style="color:#ff1c07;">15 minutes</b> will be given to join the room before game starts.</h4>
   </div>
+
+  <div id="successMessage" style="display:none; text-align:center; color: #1ec5f9;">
+    <h2>Thanks!</h2>
+    <p>The form was submitted successfully.</p>
+    <a href="index.html" class="btn btn-warning">Go back</a>
+  </div>
+
+  <script>
+    document.getElementById('formall').onsubmit = function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      const formData = new FormData(this);
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          // Hide the form and show success message
+          document.getElementById('formContainer').style.display = 'none';
+          document.getElementById('successMessage').style.display = 'block';
+        } else {
+          alert('There was a problem with your submission. Please try again.');
+        }
+      }).catch(error => {
+        alert('There was a problem with your submission. Please try again.');
+      });
+    };
+  </script>
 </body>
 </html>
