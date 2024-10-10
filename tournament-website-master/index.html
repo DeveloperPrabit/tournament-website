@@ -135,7 +135,20 @@
         padding: 14px 28px;
       }
     }
+    
+    /* Full Screen Canvas */
+    #canvas-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
   </style>
+
+  <!-- Three.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   
   <!-- jQuery and Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -143,12 +156,14 @@
 </head>
 
 <body>
+  <div id="canvas-container"></div> <!-- 3D Scene Container -->
+
   <header>FREEFIRE TOURNAMENT <br> Live on TikTok</header>
   
   <div class="row">
     <div class="container conditions col-xs-12 col-md-7">
       <ul>
-        <li><p>The tournament will be held <b style="color:#ffc107;">once</b> a every <i style="color:#ffc107;">days.</i></p></li>
+        <li><p>The tournament will be held <b style="color:#ffc107;">once</b> every <i style="color:#ffc107;">days.</i></p></li>
         <li><p>At most <b>48</b> <i style="color:#ffc107;">players</i> can play the tournament.</p></li>
         <li><p>The clan code will be sent to the player to their <b style="color:#ffc107;">E-mail addresses</b> on the tournament day.</p></li>
         <li><p>Individual amount to be paid is <i style="color:#ffc107;">20 rupees.</i></p></li>
@@ -169,8 +184,8 @@
     <!-- WhatsApp and Call Contact Section -->
     <div style="margin-top: 20px;">
       <h4 style="color: #ffc107;">Contact Us:</h4>
-      <a href="https://wa.me/9779761660142" class="btn btn-success" style="margin-right: 10px;">WhatsApp</a>
-      <a href="tel:+9779761660142" class="btn btn-primary">Call</a>
+      <a href="https://wa.me/9779761669142" class="btn btn-success" style="margin-right: 10px;">WhatsApp</a>
+      <a href="tel:+9779761669142" class="btn btn-primary">Call</a>
     </div>
 
     <!-- TikTok Button -->
@@ -192,6 +207,33 @@
         window.location.href = webFallback;
       }, 500);
     });
+
+    // 3D Scene Setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+    // Create a 3D cube
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshBasicMaterial({ color: 0xffc107 });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    camera.position.z = 5;
+
+    const animate = function () {
+      requestAnimationFrame(animate);
+
+      // Rotate the cube for some interaction
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+
+      renderer.render(scene, camera);
+    };
+
+    animate();
   </script>
 </body>
 </html>
