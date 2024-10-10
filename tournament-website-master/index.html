@@ -14,23 +14,40 @@
       font-family: Arial, sans-serif;
       background-color: #000;
       color: #fff;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     header {
       text-align: center;
-      font-size: 32px;
+      font-size: 36px;
       color: #ffc107;
-      margin-top: 20px;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: #222;
+    }
+
+    .container.conditions {
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #111;
+      border-radius: 10px;
     }
 
     .conditions ul {
       list-style-type: none;
       padding: 0;
       font-size: 18px;
+      line-height: 1.6;
     }
 
     .conditions ul li {
       margin-bottom: 10px;
+    }
+
+    .conditions p {
+      color: #fff;
     }
 
     .but {
@@ -40,29 +57,40 @@
 
     .btn {
       font-size: 20px;
-      padding: 10px 20px;
+      padding: 10px 30px;
+      margin: 10px;
+      border-radius: 5px;
     }
 
     .foot {
       text-align: center;
       margin-top: 40px;
+      padding: 20px;
+      background-color: #111;
+      border-radius: 10px;
+    }
+
+    .foot p {
+      margin-bottom: 10px;
     }
 
     .foot a {
-      margin: 5px;
-      padding: 10px 20px;
+      margin: 10px;
+      padding: 12px 20px;
       font-size: 18px;
+      border-radius: 5px;
     }
 
     .foot h4 {
       margin-bottom: 15px;
       font-size: 24px;
+      color: #ffc107;
     }
 
-    /* Responsive Styling */
+    /* Mobile View Adjustments */
     @media (max-width: 768px) {
       header {
-        font-size: 24px;
+        font-size: 28px;
       }
 
       .conditions ul {
@@ -71,11 +99,40 @@
 
       .btn {
         font-size: 18px;
-        padding: 8px 15px;
+        padding: 10px 25px;
       }
 
       .foot h4 {
         font-size: 20px;
+      }
+
+      .foot a {
+        padding: 10px 18px;
+        font-size: 16px;
+      }
+
+      .but {
+        padding: 20px;
+      }
+    }
+
+    /* Desktop View Adjustments */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 800px;
+      }
+
+      header {
+        font-size: 42px;
+      }
+
+      .btn {
+        font-size: 22px;
+        padding: 12px 35px;
+      }
+
+      .foot a {
+        padding: 14px 28px;
       }
     }
   </style>
