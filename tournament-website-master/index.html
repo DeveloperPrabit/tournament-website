@@ -47,8 +47,22 @@
     <!-- TikTok Button -->
     <div style="margin-top: 20px;">
       <h4 style="color: #ffc107;">Follow us on TikTok:</h4>
-      <a href="https://www.tiktok.com/@newar_12" target="_blank" class="btn btn-info">Go to TikTok</a>
+      <a href="tiktok://user/@newar_12" target="_blank" class="btn btn-info">Live on TikTok</a>
     </div>
   </div>
+
+  <script>
+    // TikTok fallback to the web if the app is not installed
+    document.querySelector('a[href^="tiktok://"]').addEventListener('click', function(e) {
+      e.preventDefault();
+      const tiktokURL = this.getAttribute('href');
+      const webFallback = "https://www.tiktok.com/@newar_12";
+      window.location.href = tiktokURL;
+      setTimeout(() => {
+        // Fallback to web URL if the TikTok app doesn't open
+        window.location.href = webFallback;
+      }, 500);
+    });
+  </script>
 </body>
 </html>
