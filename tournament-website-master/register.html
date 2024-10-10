@@ -36,12 +36,6 @@
     <h4 style="color: #ffc107;">A max of <b style="color:#ff1c07;">15 minutes</b> will be given to join the room before game starts.</h4>
   </div>
 
-  <div id="successMessage" style="display:none; text-align:center; color: #1ec5f9;">
-    <h2>Thanks!</h2>
-    <p>The form was submitted successfully.</p>
-    <a href="index.html" class="btn btn-warning">Go back</a>
-  </div>
-
   <script>
     document.getElementById('formall').onsubmit = function(event) {
       event.preventDefault(); // Prevent the default form submission
@@ -55,9 +49,10 @@
         }
       }).then(response => {
         if (response.ok) {
-          // Hide the form and show success message
-          document.getElementById('formContainer').style.display = 'none';
-          document.getElementById('successMessage').style.display = 'block';
+          // Show popup message on successful submission
+          alert("You have successfully registered. Please pay.");
+          // Optionally redirect to the payment page or show additional messages here
+          window.location.href = "payment.html"; // Uncomment if you want to redirect
         } else {
           alert('There was a problem with your submission. Please try again.');
         }
