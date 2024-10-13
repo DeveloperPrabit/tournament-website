@@ -201,18 +201,16 @@
     const duoFormElement = document.getElementById("duoForm");
 
     squadFormElement.addEventListener("submit", (event) => {
-      // Show the success popup
-      event.preventDefault();
+      // Allow form submission
       showPopup("You have successfully registered as Squad!");
     });
 
     duoFormElement.addEventListener("submit", (event) => {
-      // Show the success popup
-      event.preventDefault();
+      // Allow form submission
       showPopup("You have successfully registered as Duo!");
     });
 
-    // Show the success popup and redirect after click
+    // Show the success popup
     function showPopup(message) {
       const popup = document.getElementById("popup");
       const popupMessage = document.getElementById("popup-message");
@@ -221,7 +219,7 @@
 
       const popupBtn = document.getElementById("popup-btn");
       popupBtn.addEventListener("click", () => {
-        window.location.href = "payment.html"; // Redirect to payment page
+        popup.style.display = "none"; // Hide the popup
       });
     }
   </script>
