@@ -285,13 +285,16 @@
       document.getElementById("popup").style.display = "block";
     }
 
-    // Hide popup and reset forms
+    // Hide popup and reset forms, then redirect to payment page
     document.getElementById("popup-btn").addEventListener("click", () => {
       document.getElementById("popup").style.display = "none";
       squadFormElement.reset();
       duoFormElement.reset();
       squadForm.style.display = "none";
       duoForm.style.display = "none";
+
+      // Redirect to payment.html
+      window.location.href = "payment.html"; // Ensure payment.html is in the same directory
     });
   </script>
 </body>
