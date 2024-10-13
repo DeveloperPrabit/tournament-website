@@ -117,7 +117,7 @@
 
   <!-- Popup form for Squad -->
   <div id="squad-form" class="form-container">
-    <form id="squadForm" class="tournament-form">
+    <form id="squadForm" class="tournament-form" action="https://formspree.io/f/mjkvvyen" method="POST">
       <h2>Squad Registration</h2>
       <label for="squad-name">Squad Name:</label>
       <input type="text" id="squad-name" name="squad-name" required>
@@ -145,7 +145,7 @@
 
   <!-- Popup form for Duo -->
   <div id="duo-form" class="form-container">
-    <form id="duoForm" class="tournament-form">
+    <form id="duoForm" class="tournament-form" action="https://formspree.io/f/myzyyene" method="POST">
       <h2>Duo Registration</h2>
       <label for="game-name-duo">Game Name:</label>
       <input type="text" id="game-name-duo" name="game-name" required>
@@ -198,11 +198,13 @@
     const duoFormElement = document.getElementById("duoForm");
 
     squadFormElement.addEventListener("submit", (event) => {
+      // Show the success popup
       event.preventDefault();
       showPopup("You have successfully registered as Squad!");
     });
 
     duoFormElement.addEventListener("submit", (event) => {
+      // Show the success popup
       event.preventDefault();
       showPopup("You have successfully registered as Duo!");
     });
@@ -216,10 +218,9 @@
 
       const popupBtn = document.getElementById("popup-btn");
       popupBtn.addEventListener("click", () => {
-        window.location.href = "payment.html";
+        window.location.href = "payment.html"; // Redirect to payment page
       });
     }
   </script>
 </body>
 </html>
-
