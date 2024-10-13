@@ -107,6 +107,13 @@
     #popup button:hover {
       background-color: #ffcc66;
     }
+
+    .rules {
+      margin-top: 20px;
+      background-color: #2a2a2a;
+      padding: 15px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -141,6 +148,16 @@
 
       <button type="submit" class="submit-btn">Register Squad</button>
     </form>
+
+    <div class="rules">
+      <h3>Squad Rules:</h3>
+      <p>Entry Fee: Rs 50</p>
+      <p>1st Place: Rs 120 (No per kill prize)</p>
+      <p>2nd and 3rd Place: Rs 80</p>
+      <p>No team up: Any team found teaming up will be disqualified.</p>
+      <p>No vehicles: Any team using vehicles will be disqualified.</p>
+      <p>Room ID and password will be sent to your email, WhatsApp, and phone message box 15 minutes before match time.</p>
+    </div>
   </div>
 
   <!-- Popup form for Duo -->
@@ -169,6 +186,16 @@
 
       <button type="submit" class="submit-btn">Register Duo</button>
     </form>
+
+    <div class="rules">
+      <h3>Duo Rules:</h3>
+      <p>Entry Fee: Rs 30</p>
+      <p>Win: Rs 80</p>
+      <p>2nd to 7th Position: Rs 40 each</p>
+      <p>No team up: Any team found teaming up will be disqualified.</p>
+      <p>No vehicles: Any team using vehicles will be disqualified.</p>
+      <p>Room ID and password will be sent to your email, WhatsApp, and phone message box 15 minutes before match time.</p>
+    </div>
   </div>
 
   <!-- Success popup -->
@@ -252,18 +279,20 @@
       });
     });
 
-    // Show the success popup and redirect after click
+    // Function to show popup message
     function showPopup(message) {
-      const popup = document.getElementById("popup");
-      const popupMessage = document.getElementById("popup-message");
-      popupMessage.textContent = message;
-      popup.style.display = "block";
-
-      const popupBtn = document.getElementById("popup-btn");
-      popupBtn.addEventListener("click", () => {
-        window.location.href = "payment.html"; // Redirect to payment page
-      });
+      document.getElementById("popup-message").textContent = message;
+      document.getElementById("popup").style.display = "block";
     }
+
+    // Hide popup and reset forms
+    document.getElementById("popup-btn").addEventListener("click", () => {
+      document.getElementById("popup").style.display = "none";
+      squadFormElement.reset();
+      duoFormElement.reset();
+      squadForm.style.display = "none";
+      duoForm.style.display = "none";
+    });
   </script>
 </body>
 </html>
