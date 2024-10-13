@@ -188,7 +188,7 @@
 
   <!-- Squad-Duo Menu Link -->
   <div class="container but">
-    <a href="squad-duo.html" id="openModal"><button type="button" class="btn btn-warning">Squad-Duo Tournament</button></a>
+    <button type="button" class="btn btn-warning" id="openModal">Squad-Duo Tournament</button>
     <a href="register.html"><button type="button" class="btn btn-warning">REGISTER & PAY</button></a>
   </div>
 
@@ -221,7 +221,6 @@
           <p>Happy Gaming!</p>
         </div>
         <div class="modal-footer">
-          <!-- Updated Button to redirect to squad-duo.html -->
           <a href="squad-duo.html" class="btn btn-warning">Go to Squad-Duo Registration</a>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -245,32 +244,33 @@
     // 3D Scene Setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-    const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-    const material = new THREE.MeshBasicMaterial({color: 0xffff00});
-    const torus = new THREE.Mesh(geometry, material);
-    scene.add(torus);
-    camera.position.z = 30;
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
 
-    function animate() {
+    camera.position.z = 5;
+
+    const animate = function () {
       requestAnimationFrame(animate);
-      torus.rotation.x += 0.01;
-      torus.rotation.y += 0.01;
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
       renderer.render(scene, camera);
-    }
+    };
 
     animate();
 
     // Modal Popup Trigger
     $(document).ready(function() {
-      $('#openModal').click(function() {
-        $('#myModal').modal('show');
-      });
+        $('#openModal').click(function() {
+            $('#myModal').modal('show');
+        });
     });
   </script>
 </body>
-                                                        </html>
-                                                        
+</html>
