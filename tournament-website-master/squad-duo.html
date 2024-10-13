@@ -201,16 +201,58 @@
     const duoFormElement = document.getElementById("duoForm");
 
     squadFormElement.addEventListener("submit", (event) => {
-      // Allow form submission
-      showPopup("You have successfully registered as Squad!");
+      event.preventDefault(); // Prevent form submission
+
+      // Get form data
+      const formData = new FormData(squadFormElement);
+
+      // Send data to Formspree
+      fetch(squadFormElement.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          showPopup("You have successfully registered as Squad!");
+        } else {
+          showPopup("There was an error with your registration.");
+        }
+      })
+      .catch(error => {
+        showPopup("There was an error with your registration.");
+      });
     });
 
     duoFormElement.addEventListener("submit", (event) => {
-      // Allow form submission
-      showPopup("You have successfully registered as Duo!");
+      event.preventDefault(); // Prevent form submission
+
+      // Get form data
+      const formData = new FormData(duoFormElement);
+
+      // Send data to Formspree
+      fetch(duoFormElement.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          showPopup("You have successfully registered as Duo!");
+        } else {
+          showPopup("There was an error with your registration.");
+        }
+      })
+      .catch(error => {
+        showPopup("There was an error with your registration.");
+      });
     });
 
-    // Show the success popup
+    // Show the success popup and redirect after click
     function showPopup(message) {
       const popup = document.getElementById("popup");
       const popupMessage = document.getElementById("popup-message");
@@ -219,7 +261,7 @@
 
       const popupBtn = document.getElementById("popup-btn");
       popupBtn.addEventListener("click", () => {
-        popup.style.display = "none"; // Hide the popup
+        window.location.href = "payment.html"; // Redirect to payment page
       });
     }
   </script>
