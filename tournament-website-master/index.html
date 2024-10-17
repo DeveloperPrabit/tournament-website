@@ -168,6 +168,13 @@
     </ul>
   </div>
 
+  <!-- Solo Registration Section -->
+  <div class="container">
+    <h2>Solo Registration</h2>
+    <p>Please click the button below to register and pay:</p>
+    <a href="register.html" class="btn btn-warning">Register and Pay</a>
+  </div>
+
   <!-- Squad-Duo Section -->
   <div class="container">
     <h2>Squad and Duo Registration</h2>
@@ -235,14 +242,13 @@
 
       // Popup for form submission success message
       $('form').submit(function(e) {
-        e.preventDefault(); // Prevent actual form submission
+        e.preventDefault(); // Prevent default form submission
         $.ajax({
           url: $(this).attr('action'),
-          method: $(this).attr('method'),
+          method: 'POST',
           data: $(this).serialize(),
-          dataType: 'json',
           success: function() {
-            alert('Your message was sent successfully! You will be connected soon after reviewing your message.');
+            alert('Your message has been sent successfully!');
             window.location.href = "squad-duo.html"; // Redirect to squad-duo.html after successful submission
           },
           error: function() {
