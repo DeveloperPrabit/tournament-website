@@ -168,6 +168,14 @@
     </ul>
   </div>
 
+  <!-- Squad-Duo Section -->
+  <div class="container">
+    <h2>Squad and Duo Registration</h2>
+    <p>Please select your preferred mode:</p>
+    <button class="btn btn-warning" id="squadButton">Squad</button>
+    <button class="btn btn-warning" id="duoButton">Duo</button>
+  </div>
+
   <!-- Formspree Registration Form -->
   <div class="container">
     <form action="https://formspree.io/f/mzzbbyeb" method="POST">
@@ -187,12 +195,6 @@
     </form>
   </div>
 
-  <!-- Buttons Section -->
-  <div class="container text-center">
-    <button class="btn btn-warning" id="openModal">Squad-Duo Tournament</button>
-    <a href="register.html" class="btn btn-warning">REGISTER & PAY</a>
-  </div>
-
   <!-- Footer Section -->
   <div class="container foot">
     <h4>Contact Us</h4>
@@ -200,25 +202,6 @@
     <a href="tel:+9779761660142" class="btn btn-primary">Call</a>
     <h4>Follow us on TikTok</h4>
     <a href="tiktok://user/@newar_12" class="btn btn-info">Live on TikTok</a>
-  </div>
-
-  <!-- Modal Popup for Squad-Duo Registration -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">Squad and Duo Tournament</h4>
-        </div>
-        <div class="modal-body">
-          <p>Squad and Duo tournament registration has started! Go and register now 😀</p>
-          <p>Happy Gaming!</p>
-        </div>
-        <div class="modal-footer">
-          <a href="squad-duo.html" class="btn btn-warning">Go to Squad-Duo Registration</a>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- Popups for UID and Name, using localStorage to persist data -->
@@ -248,6 +231,35 @@
           localStorage.setItem('userName', userName);
           $('#nameDisplay').text(userName);
         }
+      });
+
+      // Popup for form submission success message
+      $('form').submit(function(e) {
+        e.preventDefault(); // Prevent actual form submission
+        $.ajax({
+          url: $(this).attr('action'),
+          method: $(this).attr('method'),
+          data: $(this).serialize(),
+          dataType: 'json',
+          success: function() {
+            alert('Your message was sent successfully! You will be connected soon after reviewing your message.');
+            window.location.href = "squad-duo.html"; // Redirect to squad-duo.html after successful submission
+          },
+          error: function() {
+            alert('There was an error sending your message. Please try again later.');
+          }
+        });
+      });
+
+      // Handle Squad and Duo button clicks
+      $('#squadButton').click(function() {
+        alert('You have selected Squad mode.');
+        window.location.href = "squad-duo.html"; // Redirect to squad-duo.html for Squad mode
+      });
+
+      $('#duoButton').click(function() {
+        alert('You have selected Duo mode.');
+        window.location.href = "squad-duo.html"; // Redirect to squad-duo.html for Duo mode
       });
     });
   </script>
