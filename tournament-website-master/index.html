@@ -9,211 +9,243 @@
 
   <!-- Bootstrap and Custom Stylesheets -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #000;
+      background-color: #0A0A0A;
       color: #fff;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     header {
       text-align: center;
       font-size: 36px;
-      color: #ffc107;
-      margin: 20px 0;
-      padding: 10px;
-      background-color: #222;
+      color: #ff9e00;
+      padding: 20px;
+      background-color: #1f1f1f;
+      border-bottom: 3px solid #ff9e00;
     }
 
-    .container.conditions {
+    .container {
       margin: 20px auto;
       padding: 20px;
-      background-color: #111;
-      border-radius: 10px;
+      background-color: #1f1f1f;
+      border-radius: 15px;
+      max-width: 900px;
+      box-shadow: 0px 0px 15px rgba(255, 158, 0, 0.5);
     }
 
-    .conditions ul {
+    .container ul {
       list-style-type: none;
       padding: 0;
       font-size: 18px;
-      line-height: 1.6;
+      line-height: 1.8;
     }
 
-    .conditions ul li {
-      margin-bottom: 10px;
+    .container ul li {
+      margin-bottom: 15px;
     }
 
-    .conditions p {
+    .container p {
       color: #fff;
     }
 
-    .but {
-      text-align: center;
-      margin: 20px 0;
+    .container .btn {
+      font-size: 18px;
+      padding: 12px 40px;
+      border-radius: 10px;
+      margin-top: 20px;
+      background-color: #ff9e00;
+      border: none;
+      color: #fff;
     }
 
-    .btn {
-      font-size: 20px;
-      padding: 10px 30px;
-      margin: 10px;
-      border-radius: 5px;
+    .container .btn:hover {
+      background-color: #ff7500;
+      color: #fff;
     }
 
     .foot {
       text-align: center;
       margin-top: 40px;
       padding: 20px;
-      background-color: #111;
+      background-color: #1f1f1f;
       border-radius: 10px;
     }
 
-    .foot p {
-      margin-bottom: 10px;
+    .foot h4 {
+      font-size: 22px;
+      color: #ff9e00;
     }
 
     .foot a {
       margin: 10px;
-      padding: 12px 20px;
-      font-size: 18px;
-      border-radius: 5px;
-    }
-
-    .foot h4 {
-      margin-bottom: 15px;
-      font-size: 24px;
-      color: #ffc107;
-    }
-
-    /* Date and UID Section */
-    .editable-section {
-      margin: 20px auto;
-      text-align: center;
-      padding: 20px;
-      background-color: #222;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff9e00;
+      color: #fff;
+      text-decoration: none;
       border-radius: 10px;
     }
 
-    .editable-section label {
-      font-size: 20px;
-      color: #ffc107;
-      margin-right: 10px;
+    .foot a:hover {
+      background-color: #ff7500;
     }
 
-    .editable-section input {
-      font-size: 18px;
-      padding: 5px;
-      margin: 10px;
-      border-radius: 5px;
+    .modal-content {
+      background-color: #1f1f1f;
+      color: #fff;
+      border-radius: 10px;
+      border: none;
     }
 
-    .editable-section button {
-      font-size: 18px;
-      padding: 8px 15px;
-      margin-top: 20px;
-      border-radius: 5px;
+    .modal-header, .modal-footer {
+      background-color: #ff9e00;
+      color: #000;
     }
 
-    .date-display {
-      font-size: 20px;
-      margin: 20px;
-      color: #ffc107;
+    @media (max-width: 768px) {
+      header {
+        font-size: 28px;
+      }
+
+      .container ul {
+        font-size: 16px;
+      }
+
+      .container .btn {
+        font-size: 16px;
+        padding: 10px 30px;
+      }
+
+      .foot h4 {
+        font-size: 18px;
+      }
+
+      .foot a {
+        padding: 8px 18px;
+      }
     }
+    
   </style>
 
-  <!-- Three.js Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  
-  <!-- jQuery and Bootstrap JS -->
+  <!-- Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- EmailJS script -->
 </head>
 
 <body>
   <header>FREEFIRE TOURNAMENT <br> Live on TikTok</header>
+  
+  <div class="container">
+    <ul>
+      <li><p>The tournament will be held <b style="color:#ff9e00;">once</b> every <i style="color:#ff9e00;">few days.</i></p></li>
+      <li><p>At most <b>48</b> <i style="color:#ff9e00;">players</i> can participate in the tournament.</p></li>
+      <li><p>The clan code will be sent to players' <b style="color:#ff9e00;">E-mail addresses</b> on the tournament day.</p></li>
+      <li><p>Entry fee: <i style="color:#ff9e00;">40 rupees per player.</i></p></li>
+      <li><p style="font-size:150%;">Reward per kill: <b style="color:#ff9e00;">10 rupees.</b></p></li>
+      <li><p>1 kill = <b style="color:#ff9e00;">10 rupees</b> | 2 kills = <b style="color:#ff9e00;">20 rupees</b> | 3 kills = <b style="color:#ff9e00;">30 rupees.</b></p></li>
+      <p style="font-size: 140%;">First Game: <span style="color:#ff9e00;">Oct 13 @ 7:30 pm</span></p>
+    </ul>
+  </div>
 
-  <!-- Date, Day, Time, Month, Year Display -->
-  <div class="editable-section">
-    <div class="date-display" id="currentDate"></div>
-    
-    <!-- Editable UID and Name Section -->
-    <form id="uidForm">
-      <label for="uid">UID:</label>
-      <input type="text" id="uid" name="uid" value="12345678">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" value="Player Name">
-      <button type="button" class="btn btn-warning" onclick="sendDetails()">Update Details</button>
+  <!-- Form Section -->
+  <div class="container">
+    <form id="userForm">
+      <div class="form-group">
+        <label for="username">User Name:</label>
+        <input type="text" id="username" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="userid">User ID:</label>
+        <input type="text" id="userid" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-warning">Submit</button>
     </form>
   </div>
 
-  <div class="row">
-    <div class="container conditions col-xs-12 col-md-7">
-      <ul>
-        <!-- Tournament Details -->
-      </ul>
-    </div>
+  <!-- Buttons Section -->
+  <div class="container text-center">
+    <button class="btn btn-warning" id="openModal">Squad-Duo Tournament</button>
+    <a href="register.html" class="btn btn-warning">REGISTER & PAY</a>
   </div>
 
+  <!-- Footer Section -->
   <div class="container foot">
-    <p>Enjoy your game, we'll handle the rest :)</p>
-    <div style="margin-top: 20px;">
-      <h4 style="color: #ffc107;">Contact Us:</h4>
-      <a href="https://wa.me/9779761660142" class="btn btn-success" style="margin-right: 10px;">WhatsApp</a>
-      <a href="tel:+9779761660142" class="btn btn-primary">Call</a>
-    </div>
-    <div style="margin-top: 20px;">
-      <h4 style="color: #ffc107;">Follow us on TikTok:</h4>
-      <a href="tiktok://user/@newar_12" class="btn btn-info">Live on TikTok</a>
+    <h4>Contact Us</h4>
+    <a href="https://wa.me/9779761660142" class="btn btn-success">WhatsApp</a>
+    <a href="tel:+9779761660142" class="btn btn-primary">Call</a>
+    <h4>Follow us on TikTok</h4>
+    <a href="tiktok://user/@newar_12" class="btn btn-info">Live on TikTok</a>
+  </div>
+
+  <!-- Modal Popup for Squad-Duo Registration -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Squad and Duo Tournament</h4>
+        </div>
+        <div class="modal-body">
+          <p>Squad and Duo tournament registration has started! Go and register now 😀</p>
+          <p>Happy Gaming!</p>
+        </div>
+        <div class="modal-footer">
+          <a href="squad-duo.html" class="btn btn-warning">Go to Squad-Duo Registration</a>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
-    // Initialize EmailJS with your user ID
-    emailjs.init('GabYzf4emlTESsZq8');
+    // Initialize EmailJS with your public key
+    (function() {
+      emailjs.init("GabYzf4emlTESsZq8"); // Using your public key
+    })();
 
-    // Display current date, day, time, etc.
-    function displayDate() {
-      const now = new Date();
-      const day = now.toLocaleString('en-us', { weekday: 'long' });
-      const date = now.getDate();
-      const month = now.toLocaleString('en-us', { month: 'long' });
-      const year = now.getFullYear();
-      const time = now.toLocaleTimeString();
-      document.getElementById('currentDate').innerHTML = `Date: ${day}, ${date} ${month}, ${year} - ${time}`;
-    }
+    // Load existing user ID from localStorage if available
+    let currentUserId = localStorage.getItem("userID");
 
-    setInterval(displayDate, 1000); // Update the time every second
+    // Handle form submission
+    document.getElementById("userForm").addEventListener("submit", function(event) {
+      event.preventDefault();
 
-    // Function to send UID and Name details to email
-    function sendDetails() {
-      const uid = document.getElementById('uid').value;
-      const name = document.getElementById('name').value;
+      const username = document.getElementById("username").value;
+      const userid = document.getElementById("userid").value;
 
-      // Prepare the email parameters
-      const templateParams = {
-        uid: uid,
-        name: name
-      };
+      // Check if the user ID has changed
+      if (currentUserId && currentUserId !== userid) {
+        sendEmailNotification(currentUserId, userid);
+      }
 
-      // Send email using EmailJS
-      emailjs.send('service_vsz9yck', 'template_mwll4fj', templateParams)
-        .then(function(response) {
-          alert('Details sent successfully!');
-        }, function(error) {
-          alert('Failed to send details. Please try again.');
-        });
-    }
+      // Save the new user ID in localStorage
+      localStorage.setItem("userID", userid);
 
-    // Modal Popup Trigger
-    $(document).ready(function() {
-        $('#openModal').click(function() {
-            $('#myModal').modal('show');
-        });
+      alert("Profile saved successfully!");
     });
 
+    // Function to send email notification using EmailJS
+    function sendEmailNotification(oldId, newId) {
+      const templateParams = {
+        old_user_id: oldId,
+        new_user_id: newId
+      };
+
+      emailjs.send("service_vsz9yck", "template_mwll4fj", templateParams)
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+          console.log('FAILED...', error);
+        });
+    }
+
+    // Open modal when clicking the button
+    document.getElementById("openModal").addEventListener("click", function() {
+      $("#myModal").modal('show');
+    });
   </script>
 </body>
 </html>
