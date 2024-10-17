@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="author" content="Akshat">
@@ -12,201 +12,157 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #000;
+      background-color: #0A0A0A;
       color: #fff;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     header {
       text-align: center;
       font-size: 36px;
-      color: #ffc107;
-      margin: 20px 0;
-      padding: 10px;
-      background-color: #222;
+      color: #ff9e00;
+      padding: 20px;
+      background-color: #1f1f1f;
+      border-bottom: 3px solid #ff9e00;
     }
 
-    .container.conditions {
+    .container {
       margin: 20px auto;
       padding: 20px;
-      background-color: #111;
-      border-radius: 10px;
+      background-color: #1f1f1f;
+      border-radius: 15px;
+      max-width: 900px;
+      box-shadow: 0px 0px 15px rgba(255, 158, 0, 0.5);
     }
 
-    .conditions ul {
+    .container ul {
       list-style-type: none;
       padding: 0;
       font-size: 18px;
-      line-height: 1.6;
+      line-height: 1.8;
     }
 
-    .conditions ul li {
-      margin-bottom: 10px;
+    .container ul li {
+      margin-bottom: 15px;
     }
 
-    .conditions p {
+    .container p {
       color: #fff;
     }
 
-    .but {
-      text-align: center;
-      margin: 20px 0;
+    .container .btn {
+      font-size: 18px;
+      padding: 12px 40px;
+      border-radius: 10px;
+      margin-top: 20px;
+      background-color: #ff9e00;
+      border: none;
+      color: #fff;
     }
 
-    .btn {
-      font-size: 20px;
-      padding: 10px 30px;
-      margin: 10px;
-      border-radius: 5px;
+    .container .btn:hover {
+      background-color: #ff7500;
+      color: #fff;
     }
 
     .foot {
       text-align: center;
       margin-top: 40px;
       padding: 20px;
-      background-color: #111;
+      background-color: #1f1f1f;
       border-radius: 10px;
     }
 
-    .foot p {
-      margin-bottom: 10px;
+    .foot h4 {
+      font-size: 22px;
+      color: #ff9e00;
     }
 
     .foot a {
       margin: 10px;
-      padding: 12px 20px;
-      font-size: 18px;
-      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff9e00;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
     }
 
-    .foot h4 {
-      margin-bottom: 15px;
-      font-size: 24px;
-      color: #ffc107;
+    .foot a:hover {
+      background-color: #ff7500;
     }
 
-    /* Mobile View Adjustments */
+    .modal-content {
+      background-color: #1f1f1f;
+      color: #fff;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .modal-header, .modal-footer {
+      background-color: #ff9e00;
+      color: #000;
+    }
+
     @media (max-width: 768px) {
       header {
         font-size: 28px;
       }
 
-      .conditions ul {
+      .container ul {
         font-size: 16px;
       }
 
-      .btn {
-        font-size: 18px;
-        padding: 10px 25px;
+      .container .btn {
+        font-size: 16px;
+        padding: 10px 30px;
       }
 
       .foot h4 {
-        font-size: 20px;
+        font-size: 18px;
       }
 
       .foot a {
-        padding: 10px 18px;
-        font-size: 16px;
-      }
-
-      .but {
-        padding: 20px;
-      }
-    }
-
-    /* Desktop View Adjustments */
-    @media (min-width: 768px) {
-      .container {
-        max-width: 800px;
-      }
-
-      header {
-        font-size: 42px;
-      }
-
-      .btn {
-        font-size: 22px;
-        padding: 12px 35px;
-      }
-
-      .foot a {
-        padding: 14px 28px;
+        padding: 8px 18px;
       }
     }
     
-    /* Full Screen Canvas */
-    #canvas-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-    }
-
-    .modal-content {
-      background-color: #222;
-      color: #fff;
-      border-radius: 10px;
-    }
-
-    .modal-header, .modal-footer {
-      background-color: #ffc107;
-      color: #000;
-    }
-
   </style>
 
-  <!-- Three.js Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  
-  <!-- jQuery and Bootstrap JS -->
+  <!-- Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <div id="canvas-container"></div> <!-- 3D Scene Container -->
-
   <header>FREEFIRE TOURNAMENT <br> Live on TikTok</header>
   
-  <div class="row">
-    <div class="container conditions col-xs-12 col-md-7">
-      <ul>
-        <li><p>The tournament will be held <b style="color:#ffc107;">once</b> every <i style="color:#ffc107;">days.</i></p></li>
-        <li><p>At most <b>48</b> <i style="color:#ffc107;">players</i> can play the tournament.</p></li>
-        <li><p>The clan code will be sent to the player to their <b style="color:#ffc107;">E-mail addresses</b> on the tournament day.</p></li>
-        <li><p>Individual amount to be paid is <i style="color:#ffc107;">20 rupees.</i></p></li>
-        <li><p style="font-size:180%;">The reward amount per kill is <b style="color:#ffc107;">10 rupees.</b></p></li>
-        <li><p>1 kill = <b style="color:#ffc107;">10 rupees </b>| 2 kills = <b style="color:#ffc107;">20 rupees</b> | 3 kills = <b style="color:#ffc107;">30 rupees.</b></p></li>
-        <p style="color:#ffffff;font-size: 150%;">& so on... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; First Game:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ffc107;">oct 13 @ 7:30 pm</span></p>
-      </ul>
-    </div>
+  <div class="container">
+    <ul>
+      <li><p>The tournament will be held <b style="color:#ff9e00;">once</b> every <i style="color:#ff9e00;">few days.</i></p></li>
+      <li><p>At most <b>48</b> <i style="color:#ff9e00;">players</i> can participate in the tournament.</p></li>
+      <li><p>The clan code will be sent to players' <b style="color:#ff9e00;">E-mail addresses</b> on the tournament day.</p></li>
+      <li><p>Entry fee: <i style="color:#ff9e00;">20 rupees per player.</i></p></li>
+      <li><p style="font-size:150%;">Reward per kill: <b style="color:#ff9e00;">10 rupees.</b></p></li>
+      <li><p>1 kill = <b style="color:#ff9e00;">10 rupees</b> | 2 kills = <b style="color:#ff9e00;">20 rupees</b> | 3 kills = <b style="color:#ff9e00;">30 rupees.</b></p></li>
+      <p style="font-size: 140%;">First Game: <span style="color:#ff9e00;">Oct 13 @ 7:30 pm</span></p>
+    </ul>
   </div>
 
-  <!-- Squad-Duo Menu Link -->
-  <div class="container but">
-    <button type="button" class="btn btn-warning" id="openModal">Squad-Duo Tournament</button>
-    <a href="register.html"><button type="button" class="btn btn-warning">REGISTER & PAY</button></a>
+  <!-- Buttons Section -->
+  <div class="container text-center">
+    <button class="btn btn-warning" id="openModal">Squad-Duo Tournament</button>
+    <a href="register.html" class="btn btn-warning">REGISTER & PAY</a>
   </div>
 
+  <!-- Footer Section -->
   <div class="container foot">
-    <p>Enjoy your game, we'll handle the rest :)</p>
-    
-    <!-- WhatsApp and Call Contact Section -->
-    <div style="margin-top: 20px;">
-      <h4 style="color: #ffc107;">Contact Us:</h4>
-      <a href="https://wa.me/9779761660142" class="btn btn-success" style="margin-right: 10px;">WhatsApp</a>
-      <a href="tel:+9779761660142" class="btn btn-primary">Call</a>
-    </div>
-
-    <!-- TikTok Button -->
-    <div style="margin-top: 20px;">
-      <h4 style="color: #ffc107;">Follow us on TikTok:</h4>
-      <a href="tiktok://user/@newar_12" class="btn btn-info">Live on TikTok</a>
-    </div>
+    <h4>Contact Us</h4>
+    <a href="https://wa.me/9779761660142" class="btn btn-success">WhatsApp</a>
+    <a href="tel:+9779761660142" class="btn btn-primary">Call</a>
+    <h4>Follow us on TikTok</h4>
+    <a href="tiktok://user/@newar_12" class="btn btn-info">Live on TikTok</a>
   </div>
 
   <!-- Modal Popup for Squad-Duo Registration -->
@@ -217,7 +173,7 @@
           <h4 class="modal-title" id="myModalLabel">Squad and Duo Tournament</h4>
         </div>
         <div class="modal-body">
-          <p>Squad and Duo tournament registration has been started! <br>Go and register 😀</p>
+          <p>Squad and Duo tournament registration has started! Go and register now 😀</p>
           <p>Happy Gaming!</p>
         </div>
         <div class="modal-footer">
@@ -229,47 +185,11 @@
   </div>
 
   <script>
-    // TikTok fallback to the web if the app is not installed
-    document.querySelector('a[href^="tiktok://"]').addEventListener('click', function(e) {
-      e.preventDefault();
-      const tiktokURL = this.getAttribute('href');
-      const webFallback = "https://www.tiktok.com/@newar_12";
-      window.location.href = tiktokURL;
-      setTimeout(() => {
-        // Fallback to web URL if the TikTok app doesn't open
-        window.location.href = webFallback;
-      }, 500);
-    });
-
-    // 3D Scene Setup
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
-
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById('canvas-container').appendChild(renderer.domElement);
-
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-
-    camera.position.z = 5;
-
-    const animate = function () {
-      requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
     // Modal Popup Trigger
     $(document).ready(function() {
-        $('#openModal').click(function() {
-            $('#myModal').modal('show');
-        });
+      $('#openModal').click(function() {
+        $('#myModal').modal('show');
+      });
     });
   </script>
 </body>
