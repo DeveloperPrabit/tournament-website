@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="author" content="Akshat">
+  <meta name="author" content="Prabit Joshi">
   <title>FREEFIRE TOURNAMENT</title>
   <link rel="icon" href="Images/com.chislov.pubgquest.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,8 @@
   <!-- Bootstrap and Custom Stylesheets -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <style>
+    /* Your existing CSS styles here... */
+    
     body {
       font-family: Arial, sans-serif;
       background-color: #0A0A0A;
@@ -34,6 +36,18 @@
       border-radius: 15px;
       max-width: 900px;
       box-shadow: 0px 0px 15px rgba(255, 158, 0, 0.5);
+    }
+
+    .top-info {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .top-info span {
+      cursor: pointer;
+      color: #ff9e00;
+      font-weight: bold;
+      margin: 0 10px;
     }
 
     .container ul {
@@ -127,42 +141,49 @@
         padding: 8px 18px;
       }
     }
-    
   </style>
 
   <!-- Bootstrap JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- EmailJS script -->
 </head>
 
 <body>
   <header>FREEFIRE TOURNAMENT <br> Live on TikTok</header>
   
+  <div class="container top-info">
+    <span>UID: <span id="uidDisplay">Click to set UID</span></span> | 
+    <span>User Name: <span id="nameDisplay">Click to set Name</span></span>
+  </div>
+
   <div class="container">
     <ul>
       <li><p>The tournament will be held <b style="color:#ff9e00;">once</b> every <i style="color:#ff9e00;">few days.</i></p></li>
       <li><p>At most <b>48</b> <i style="color:#ff9e00;">players</i> can participate in the tournament.</p></li>
       <li><p>The clan code will be sent to players' <b style="color:#ff9e00;">E-mail addresses</b> on the tournament day.</p></li>
-      <li><p>Entry fee: <i style="color:#ff9e00;">40 rupees per player.</i></p></li>
+      <li><p>Entry fee: <i style="color:#ff9e00;">20 rupees per player.</i></p></li>
       <li><p style="font-size:150%;">Reward per kill: <b style="color:#ff9e00;">10 rupees.</b></p></li>
       <li><p>1 kill = <b style="color:#ff9e00;">10 rupees</b> | 2 kills = <b style="color:#ff9e00;">20 rupees</b> | 3 kills = <b style="color:#ff9e00;">30 rupees.</b></p></li>
       <p style="font-size: 140%;">First Game: <span style="color:#ff9e00;">Oct 13 @ 7:30 pm</span></p>
     </ul>
   </div>
 
-  <!-- Form Section -->
+  <!-- Formspree Registration Form -->
   <div class="container">
-    <form id="userForm">
+    <form action="https://formspree.io/f/{YOUR_FORM_ID}" method="POST">
       <div class="form-group">
-        <label for="username">User Name:</label>
-        <input type="text" id="username" class="form-control" required>
+        <label for="name">Your Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
       </div>
       <div class="form-group">
-        <label for="userid">User ID:</label>
-        <input type="text" id="userid" class="form-control" required>
+        <label for="email">Your Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
       </div>
-      <button type="submit" class="btn btn-warning">Submit</button>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea class="form-control" id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-warning">Send</button>
     </form>
   </div>
 
@@ -200,51 +221,34 @@
     </div>
   </div>
 
+  <!-- Popups for UID and Name, using localStorage to persist data -->
   <script>
-    // Initialize EmailJS with your public key
-    (function() {
-      emailjs.init("GabYzf4emlTESsZq8"); // Using your public key
-    })();
-
-    // Load existing user ID from localStorage if available
-    let currentUserId = localStorage.getItem("userID");
-
-    // Handle form submission
-    document.getElementById("userForm").addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      const username = document.getElementById("username").value;
-      const userid = document.getElementById("userid").value;
-
-      // Check if the user ID has changed
-      if (currentUserId && currentUserId !== userid) {
-        sendEmailNotification(currentUserId, userid);
+    $(document).ready(function() {
+      // Retrieve UID and Name from localStorage (if available)
+      if (localStorage.getItem('uid')) {
+        $('#uidDisplay').text(localStorage.getItem('uid'));
+      }
+      if (localStorage.getItem('userName')) {
+        $('#nameDisplay').text(localStorage.getItem('userName'));
       }
 
-      // Save the new user ID in localStorage
-      localStorage.setItem("userID", userid);
+      // Set new UID
+      $('#uidDisplay').click(function() {
+        var uid = prompt("Enter your UID:");
+        if (uid) {
+          localStorage.setItem('uid', uid);
+          $('#uidDisplay').text(uid);
+        }
+      });
 
-      alert("Profile saved successfully!");
-    });
-
-    // Function to send email notification using EmailJS
-    function sendEmailNotification(oldId, newId) {
-      const templateParams = {
-        old_user_id: oldId,
-        new_user_id: newId
-      };
-
-      emailjs.send("service_vsz9yck", "template_mwll4fj", templateParams)
-        .then(function(response) {
-          console.log('SUCCESS!', response.status, response.text);
-        }, function(error) {
-          console.log('FAILED...', error);
-        });
-    }
-
-    // Open modal when clicking the button
-    document.getElementById("openModal").addEventListener("click", function() {
-      $("#myModal").modal('show');
+      // Set new User Name
+      $('#nameDisplay').click(function() {
+        var userName = prompt("Enter your User Name:");
+        if (userName) {
+          localStorage.setItem('userName', userName);
+          $('#nameDisplay').text(userName);
+        }
+      });
     });
   </script>
 </body>
