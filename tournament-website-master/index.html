@@ -29,28 +29,6 @@
       border-bottom: 3px solid #ff9e00;
     }
 
-    /* Add login button styling */
-    .login-menu {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-    }
-
-    .login-menu a {
-      color: #ff9e00;
-      font-size: 18px;
-      text-decoration: none;
-      background-color: #1f1f1f;
-      padding: 10px 15px;
-      border: 2px solid #ff9e00;
-      border-radius: 5px;
-    }
-
-    .login-menu a:hover {
-      background-color: #ff7500;
-      color: #fff;
-    }
-
     .container {
       margin: 20px auto;
       padding: 20px;
@@ -129,6 +107,18 @@
       background-color: #ff7500;
     }
 
+    .modal-content {
+      background-color: #1f1f1f;
+      color: #fff;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .modal-header, .modal-footer {
+      background-color: #ff9e00;
+      color: #000;
+    }
+
     @media (max-width: 768px) {
       header {
         font-size: 28px;
@@ -150,16 +140,6 @@
       .foot a {
         padding: 8px 18px;
       }
-
-      .login-menu {
-        top: 10px;
-        right: 10px;
-      }
-
-      .login-menu a {
-        font-size: 14px;
-        padding: 8px 12px;
-      }
     }
   </style>
 
@@ -169,13 +149,10 @@
 </head>
 
 <body>
-  <header>
-    FREEFIRE TOURNAMENT <br> Live on TikTok
-    <!-- Login Menu -->
-    <div class="login-menu">
+  <header>FREEFIRE TOURNAMENT <br> Live on TikTok</header>
+  <div class="login-menu">
       <a href="https://logandsignup.vercel.app/" id="loginButton">Login</a>
-    </div>
-  </header>
+  </div>
   
   <div class="container top-info">
     <span>UID: <span id="uidDisplay">Click to set UID</span></span> | 
@@ -236,8 +213,67 @@
     <h4>Follow us on TikTok</h4>
     <a href="tiktok://user/@newar_12" class="btn btn-info">Live on TikTok</a>
     <h4>Follow us on YouTube</h4>
-   <a href="https://www.youtube.com/c/newar12" class="btn btn-danger">YouTube</a>
+   <a href="https://www.youtube.com/@prabityt81" class="btn btn-danger">YouTube</a>
+    
   </div>
 
+  <!-- Popups for UID and Name, using localStorage to persist data -->
+  <script>
+    $(document).ready(function() {
+      // Retrieve UID and Name from localStorage (if available)
+      if (localStorage.getItem('uid')) {
+        $('#uidDisplay').text(localStorage.getItem('uid'));
+      }
+      if (localStorage.getItem('userName')) {
+        $('#nameDisplay').text(localStorage.getItem('userName'));
+      }
+
+      // Set new UID
+      $('#uidDisplay').click(function() {
+        var uid = prompt("Enter your UID:");
+        if (uid) {
+          localStorage.setItem('uid', uid);
+          $('#uidDisplay').text(uid);
+        }
+      });
+
+      // Set new User Name
+      $('#nameDisplay').click(function() {
+        var userName = prompt("Enter your User Name:");
+        if (userName) {
+          localStorage.setItem('userName', userName);
+          $('#nameDisplay').text(userName);
+        }
+      });
+
+      // Popup for form submission success message
+      $('form').submit(function(e) {
+        e.preventDefault(); // Prevent default form submission
+        $.ajax({
+          url: $(this).attr('action'),
+          method: 'POST',
+          data: $(this).serialize(),
+          success: function() {
+            alert('Your message has been sent successfully!');
+            window.location.href = "squad-duo.html"; // Redirect to squad-duo.html after successful submission
+          },
+          error: function() {
+            alert('There was an error sending your message. Please try again later.');
+          }
+        });
+      });
+
+      // Handle Squad and Duo button clicks
+      $('#squadButton').click(function() {
+        alert('You have selected Squad mode.');
+        window.location.href = "squad-duo.html"; // Redirect to squad-duo.html for Squad mode
+      });
+
+      $('#duoButton').click(function() {
+        alert('You have selected Duo mode.');
+        window.location.href = "squad-duo.html"; // Redirect to squad-duo.html for Duo mode
+      });
+    });
+  </script>
 </body>
 </html>
