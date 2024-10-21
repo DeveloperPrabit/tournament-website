@@ -1,5 +1,5 @@
 # tournament-website
-[Tournament-nine-official](http://tornamet-nine.xyz/) is a website which allows users to *register* for **FREE FIRE TOURNAMENT** which is held twice a week.<br />
+[Tournament-nine-official](https://www.tournamet-nine.xyz/) is a website which allows users to *register* for **FREE FIRE TOURNAMENT** which is held twice a week.<br />
 
 ## Rules:
 There are certain rules which a player who signs up has to follow:<br />
