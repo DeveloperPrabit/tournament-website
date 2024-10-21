@@ -259,29 +259,34 @@
     </footer>
 
     <script>
-        document.getElementById("uidDisplay").addEventListener("click", function () {
-            var uid = prompt("Enter your UID:");
-            if (uid) {
-                document.getElementById("uidDisplay").innerText = uid;
-            }
-        });
+    // Function to prompt for input and update display
+    function updateDisplay(elementId, promptText) {
+        const inputValue = prompt(promptText);
+        if (inputValue) {
+            document.getElementById(elementId).innerText = inputValue;
+        }
+    }
 
-        document.getElementById("nameDisplay").addEventListener("click", function () {
-            var name = prompt("Enter your Name:");
-            if (name) {
-                document.getElementById("nameDisplay").innerText = name;
-            }
-        });
+    document.getElementById("uidDisplay").addEventListener("click", function () {
+        updateDisplay("uidDisplay", "Enter your UID:");
+    });
 
-        // Optional: Add event listeners for squad and duo buttons for future enhancements
-        document.getElementById("squadButton").addEventListener("click", function () {
-            window.location.href = "squad-duo.html"; // Redirect to squad-duo.html
-        });
+    document.getElementById("nameDisplay").addEventListener("click", function () {
+        updateDisplay("nameDisplay", "Enter your Name:");
+    });
 
-        document.getElementById("duoButton").addEventListener("click", function () {
-            window.location.href = "squad-duo.html"; // Redirect to squad-duo.html
-        });
+    // Optional: Add event listeners for squad and duo buttons for future enhancements
+    document.getElementById("squadButton").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+        window.location.href = "squad-duo.html"; // Redirect to squad-duo.html
+    });
+
+    document.getElementById("duoButton").addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+        window.location.href = "squad-duo.html"; // Redirect to squad-duo.html
+    });
     </script>
+    
 </body>
 
 </html>
