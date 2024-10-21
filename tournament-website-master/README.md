@@ -1,10 +1,10 @@
 # tournament-website
-[GamersArc](http://gamersarc.000webhostapp.com/) is a website which allows users to *register* for **PUBG Tournament** which is held twice a week.<br />
+[Tournament-nine-official](http://tornamet-nine.xyz/) is a website which allows users to *register* for **FREE FIRE TOURNAMENT** which is held twice a week.<br />
 
 ## Rules:
 There are certain rules which a player who signs up has to follow:<br />
- - Atmost *100* players are allowed to sign up for a single tournament.<br />
- - There is a fee charge of *20* ruppees per player.
+ - Atmost *48* players are allowed to sign up for a single tournament.<br />
+ - There is a fee charge of *40* ruppees per player.
  - The reward per kill is *10* ruppees.
  - Users has to register through website and submit their *Gaming name*, *Email-Id* and *Paytm number*.
  - A maximum of 15 minutes are given to every player to join the game room.
