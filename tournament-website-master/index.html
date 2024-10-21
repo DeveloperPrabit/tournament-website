@@ -246,8 +246,7 @@
             <button type="submit" class="btn btn-warning">Submit</button>
         </form>
     </div>
-
-    <!-- Footer Section -->
+<!-- Footer Section -->
     <footer class="foot">
         <h4>Contact Us</h4>
         <a href="https://wa.me/9779761660142" class="btn btn-success">WhatsApp</a>
@@ -259,34 +258,44 @@
     </footer>
 
     <script>
-    // Function to prompt for input and update display
-    function updateDisplay(elementId, promptText) {
-        const inputValue = prompt(promptText);
-        if (inputValue) {
-            document.getElementById(elementId).innerText = inputValue;
+        // Function to set UID
+        function setUID() {
+            const uid = prompt("Please enter your UID:");
+            if (uid) {
+                localStorage.setItem("uid", uid);
+                document.getElementById("uidDisplay").innerText = uid;
+            }
         }
-    }
 
-    document.getElementById("uidDisplay").addEventListener("click", function () {
-        updateDisplay("uidDisplay", "Enter your UID:");
-    });
+        // Function to set User Name
+        function setUserName() {
+            const name = prompt("Please enter your User Name:");
+            if (name) {
+                localStorage.setItem("userName", name);
+                document.getElementById("nameDisplay").innerText = name;
+            }
+        }
 
-    document.getElementById("nameDisplay").addEventListener("click", function () {
-        updateDisplay("nameDisplay", "Enter your Name:");
-    });
+        // Function to load stored data on page load
+        function loadStoredData() {
+            const uid = localStorage.getItem("uid");
+            const userName = localStorage.getItem("userName");
 
-    // Optional: Add event listeners for squad and duo buttons for future enhancements
-    document.getElementById("squadButton").addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default link behavior
-        window.location.href = "squad-duo.html"; // Redirect to squad-duo.html
-    });
+            if (uid) {
+                document.getElementById("uidDisplay").innerText = uid;
+            }
+            if (userName) {
+                document.getElementById("nameDisplay").innerText = userName;
+            }
+        }
 
-    document.getElementById("duoButton").addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default link behavior
-        window.location.href = "squad-duo.html"; // Redirect to squad-duo.html
-    });
+        // Event listeners for displaying prompt
+        document.getElementById("uidDisplay").addEventListener("click", setUID);
+        document.getElementById("nameDisplay").addEventListener("click", setUserName);
+
+        // Load stored data on page load
+        window.onload = loadStoredData;
     </script>
-    
 </body>
 
 </html>
