@@ -1,300 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="author" content="Prabit Joshi">
-  <title>FREEFIRE TOURNAMENT</title>
-  <link rel="icon" href="Images/com.chislov.pubgquest.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="author" content="Prabit Joshi">
+    <meta name="description" content="Join the thrilling FreeFire tournament. Register now, enjoy live streams on TikTok, and stand a chance to win exciting rewards per kill!">
+    <meta name="keywords" content="FreeFire, tournament, gaming, registration, live stream, rewards">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap and Custom Stylesheets -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <style>
-    /* Your existing CSS styles here... */
-    
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0A0A0A;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-    }
+    <title>FreeFire Tournament - Register Now & Win!</title>
+    <link rel="icon" href="Images/com.chislov.pubgquest.png">
 
-    header {
-      text-align: center;
-      font-size: 36px;
-      color: #ff9e00;
-      padding: 20px;
-      background-color: #1f1f1f;
-      border-bottom: 3px solid #ff9e00;
-    }
-    .login-menu {
-      position: absolute;
-      right: -46px;
-      padding: 60px 75px;
-      top: 20px;
-    }
+    <!-- Bootstrap and Custom Stylesheets -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0A0A0A;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
 
-    .login-menu a {
-      color: #ff9e00;
-      font-size: 14px;
-      text-decoration: none;
-      background-color: #1f1f1f;
-      padding: 10px 15px;
-      border: 2px solid #ff9e00;
-      border-radius: 5px;
-    }
+        header {
+            text-align: center;
+            font-size: 36px;
+            color: #ff9e00;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-bottom: 3px solid #ff9e00;
+        }
 
-    .login-menu a:hover {
-      background-color: #ff7500;
-      color: #fff;
-    }
+        .login-menu {
+            position: absolute;
+            right: -46px;
+            padding: 60px 75px;
+            top: 20px;
+        }
 
-    .container {
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #1f1f1f;
-      border-radius: 15px;
-      max-width: 900px;
-      box-shadow: 0px 0px 15px rgba(255, 158, 0, 0.5);
-    }
+        .login-menu a {
+            color: #ff9e00;
+            font-size: 14px;
+            text-decoration: none;
+            background-color: #1f1f1f;
+            padding: 10px 15px;
+            border: 2px solid #ff9e00;
+            border-radius: 5px;
+        }
 
-    .top-info {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+        .login-menu a:hover {
+            background-color: #ff7500;
+            color: #fff;
+        }
 
-    .top-info span {
-      cursor: pointer;
-      color: #ff9e00;
-      font-weight: bold;
-      margin: 0 10px;
-    }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-radius: 15px;
+            max-width: 900px;
+            box-shadow: 0px 0px 15px rgba(255, 158, 0, 0.5);
+        }
 
-    .container ul {
-      list-style-type: none;
-      padding: 0;
-      font-size: 18px;
-      line-height: 1.8;
-    }
+        .top-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    .container ul li {
-      margin-bottom: 15px;
-    }
+        .top-info span {
+            cursor: pointer;
+            color: #ff9e00;
+            font-weight: bold;
+            margin: 0 10px;
+        }
 
-    .container p {
-      color: #fff;
-    }
+        .container ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 18px;
+            line-height: 1.8;
+        }
 
-    .container .btn {
-      font-size: 18px;
-      padding: 12px 40px;
-      border-radius: 10px;
-      margin-top: 20px;
-      background-color: #ff9e00;
-      border: none;
-      color: #fff;
-    }
+        .container ul li {
+            margin-bottom: 15px;
+        }
 
-    .container .btn:hover {
-      background-color: #ff7500;
-      color: #fff;
-    }
+        .container p {
+            color: #fff;
+        }
 
-    .foot {
-      text-align: center;
-      margin-top: 40px;
-      padding: 20px;
-      background-color: #1f1f1f;
-      border-radius: 10px;
-    }
+        .container .btn {
+            font-size: 18px;
+            padding: 12px 40px;
+            border-radius: 10px;
+            margin-top: 20px;
+            background-color: #ff9e00;
+            border: none;
+            color: #fff;
+        }
 
-    .foot h4 {
-      font-size: 22px;
-      color: #ff9e00;
-    }
+        .container .btn:hover {
+            background-color: #ff7500;
+            color: #fff;
+        }
 
-    .foot a {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #ff9e00;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 10px;
-    }
+        .foot {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-radius: 10px;
+        }
 
-    .foot a:hover {
-      background-color: #ff7500;
-    }
+        .foot h4 {
+            font-size: 22px;
+            color: #ff9e00;
+        }
 
-    .modal-content {
-      background-color: #1f1f1f;
-      color: #fff;
-      border-radius: 10px;
-      border: none;
-    }
+        .foot a {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff9e00;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+        }
 
-    .modal-header, .modal-footer {
-      background-color: #ff9e00;
-      color: #000;
-    }
+        .foot a:hover {
+            background-color: #ff7500;
+        }
 
-    @media (max-width: 768px) {
-      header {
-        font-size: 28px;
-      }
+        .modal-content {
+            background-color: #1f1f1f;
+            color: #fff;
+            border-radius: 10px;
+            border: none;
+        }
 
-      .container ul {
-        font-size: 16px;
-      }
+        .modal-header,
+        .modal-footer {
+            background-color: #ff9e00;
+            color: #000;
+        }
 
-      .container .btn {
-        font-size: 16px;
-        padding: 10px 30px;
-      }
+        @media (max-width: 768px) {
+            header {
+                font-size: 28px;
+            }
 
-      .foot h4 {
-        font-size: 18px;
-      }
+            .container ul {
+                font-size: 16px;
+            }
 
-      .foot a {
-        padding: 8px 18px;
-      }
-    }
-  </style>
+            .container .btn {
+                font-size: 16px;
+                padding: 10px 30px;
+            }
 
-  <!-- Bootstrap JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            .foot h4 {
+                font-size: 18px;
+            }
+
+            .foot a {
+                padding: 8px 18px;
+            }
+        }
+    </style>
+
+    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-  <header>FREEFIRE TOURNAMENT <br> Live on TikTok</header>
-  <div class="login-menu">
-      <a href="https://logandsignup.vercel.app/" id="loginButton">Login</a>
-  </div>
-  
-  <div class="container top-info">
-    <span>UID: <span id="uidDisplay">Click to set UID</span></span> | 
-    <span>User Name: <span id="nameDisplay">Click to set Name</span></span>
-  </div>
+    <header>
+        <h1>FREEFIRE TOURNAMENT</h1>
+        <h2>Live on TikTok</h2>
+    </header>
+    <div class="login-menu">
+        <a href="https://logandsignup.vercel.app/" id="loginButton">Login</a>
+    </div>
 
-  <div class="container">
-    <ul>
-      <li><p>The tournament will be held <b style="color:#ff9e00;">once</b> every <i style="color:#ff9e00;">few days.</i></p></li>
-      <li><p>At most <b>48</b> <i style="color:#ff9e00;">players</i> can participate in the tournament.</p></li>
-      <li><p>The clan code will be sent to players' <b style="color:#ff9e00;">E-mail addresses</b> on the tournament day.</p></li>
-      <li><p>Entry fee: <i style="color:#ff9e00;">40 rupees per player.</i></p></li>
-      <li><p style="font-size:150%;">Reward per kill: <b style="color:#ff9e00;">10 rupees.</b></p></li>
-      <li><p>1 kill = <b style="color:#ff9e00;">10 rupees</b> | 2 kills = <b style="color:#ff9e00;">20 rupees</b> | 3 kills = <b style="color:#ff9e00;">30 rupees.</b></p></li>
-      <p style="font-size: 140%;">Next Game: <span style="color:#ff9e00;">Oct 18 @ 7:30 pm</span></p>
-    </ul>
-  </div>
+    <div class="container top-info">
+        <span>UID: <span id="uidDisplay">Click to set UID</span></span> |
+        <span>User Name: <span id="nameDisplay">Click to set Name</span></span>
+    </div>
 
-  <!-- Solo Registration Section -->
-  <div class="container">
-    <h2>Solo Registration</h2>
-    <p>Please click the button below to register and pay:</p>
-    <a href="register.html" class="btn btn-warning">Register and Pay</a>
-  </div>
+    <div class="container">
+        <h2>Game Info</h2>
+        <ul>
+            <li>
+                <p>The tournament will be held <b style="color:#ff9e00;">once</b> every <i style="color:#ff9e00;">few days.</i></p>
+            </li>
+            <li>
+                <p>At most <b>48</b> <i style="color:#ff9e00;">players</i> can participate in the tournament.</p>
+            </li>
+            <li>
+                <p>The clan code will be sent to players' <b style="color:#ff9e00;">E-mail addresses</b> on the tournament day.</p>
+            </li>
+            <li>
+                <p>Entry fee: <i style="color:#ff9e00;">40 rupees per player.</i></p>
+            </li>
+            <li>
+                <p style="font-size:150%;">Reward per kill: <b style="color:#ff9e00;">10 rupees.</b></p>
+            </li>
+            <li>
+                <p>1 kill = <b style="color:#ff9e00;">10 rupees</b> | 2 kills = <b style="color:#ff9e00;">20 rupees</b> | 3 kills = <b style="color:#ff9e00;">30 rupees.</b></p>
+            </li>
+            <p style="font-size: 140%;">Next Game: <span style="color:#ff9e00;">Oct 18 @ 7:30 pm</span></p>
+        </ul>
+    </div>
 
-  <!-- Squad-Duo Section -->
-  <div class="container">
-    <h2>Squad and Duo Registration</h2>
-    <p>Please select your preferred mode:</p>
-    <button class="btn btn-warning" id="squadButton">Squad</button>
-    <button class="btn btn-warning" id="duoButton">Duo</button>
-  </div>
+    <!-- Solo Registration Section -->
+    <div class="container">
+        <h2>Solo Registration</h2>
+        <p>Please click the button below to register and pay:</p>
+        <a href="register.html" class="btn btn-warning">Register and Pay</a>
+    </div>
 
-  <!-- Formspree Registration Form -->
-  <div class="container">
-    <form action="https://formspree.io/f/mzzbbyeb" method="POST">
-      <div class="form-group">
-        <label for="name">Your Name</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Your Email</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea class="form-control" id="message" name="message" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-warning">Send</button>
-    </form>
-  </div>
+    <!-- Squad-Duo Section -->
+    <div class="container">
+        <h2>Squad and Duo Registration</h2>
+        <p>Please select your preferred mode:</p>
+        <a href="squad-duo.html" class="btn btn-warning" id="squadButton">Squad</a>
+        <a href="squad-duo.html" class="btn btn-warning" id="duoButton">Duo</a>
+    </div>
 
-  <!-- Footer Section -->
-  <div class="container foot">
-    <h4>Contact Us</h4>
-    <a href="https://wa.me/9779761660142" class="btn btn-success">WhatsApp</a>
-    <a href="tel:+9779761660142" class="btn btn-primary">Call</a>
-    <h4>Follow us on TikTok</h4>
-    <a href="tiktok://user/@newar_12" class="btn btn-info">Live on TikTok</a>
-    <h4>Follow us on YouTube</h4>
-   <a href="https://www.youtube.com/@prabityt81" class="btn btn-danger">YouTube</a>
-    
-  </div>
+    <!-- Formspree Registration Form -->
+    <div class="container">
+        <h2>Contact Us for More Information</h2>
+        <form action="https://formspree.io/f/mzzbbyeb" method="POST">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning">Submit</button>
+        </form>
+    </div>
 
-  <!-- Popups for UID and Name, using localStorage to persist data -->
-  <script>
-    $(document).ready(function() {
-      // Retrieve UID and Name from localStorage (if available)
-      if (localStorage.getItem('uid')) {
-        $('#uidDisplay').text(localStorage.getItem('uid'));
-      }
-      if (localStorage.getItem('userName')) {
-        $('#nameDisplay').text(localStorage.getItem('userName'));
-      }
+    <!-- Footer Section -->
+    <footer class="foot">
+        <h4>Contact Us</h4>
+        <a href="https://wa.me/9779761660142" class="btn btn-success">WhatsApp</a>
+        <a href="tel:+9779761660142" class="btn btn-primary">Call</a>
+        <h4>Follow us on TikTok</h4>
+        <a href="tiktok://user/@newar_12" class="btn btn-info">Live on TikTok</a>
+        <h4>Follow us on YouTube</h4>
+        <a href="https://www.youtube.com/@prabityt81" class="btn btn-danger">YouTube</a>
+    </footer>
 
-      // Set new UID
-      $('#uidDisplay').click(function() {
-        var uid = prompt("Enter your UID:");
-        if (uid) {
-          localStorage.setItem('uid', uid);
-          $('#uidDisplay').text(uid);
-        }
-      });
-
-      // Set new User Name
-      $('#nameDisplay').click(function() {
-        var userName = prompt("Enter your User Name:");
-        if (userName) {
-          localStorage.setItem('userName', userName);
-          $('#nameDisplay').text(userName);
-        }
-      });
-
-      // Popup for form submission success message
-      $('form').submit(function(e) {
-        e.preventDefault(); // Prevent default form submission
-        $.ajax({
-          url: $(this).attr('action'),
-          method: 'POST',
-          data: $(this).serialize(),
-          success: function() {
-            alert('Your message has been sent successfully!');
-            window.location.href = "squad-duo.html"; // Redirect to squad-duo.html after successful submission
-          },
-          error: function() {
-            alert('There was an error sending your message. Please try again later.');
-          }
+    <script>
+        document.getElementById("uidDisplay").addEventListener("click", function () {
+            var uid = prompt("Enter your UID:");
+            if (uid) {
+                document.getElementById("uidDisplay").innerText = uid;
+            }
         });
-      });
 
-      // Handle Squad and Duo button clicks
-      $('#squadButton').click(function() {
-        alert('You have selected Squad mode.');
-        window.location.href = "squad-duo.html"; // Redirect to squad-duo.html for Squad mode
-      });
+        document.getElementById("nameDisplay").addEventListener("click", function () {
+            var name = prompt("Enter your Name:");
+            if (name) {
+                document.getElementById("nameDisplay").innerText = name;
+            }
+        });
 
-      $('#duoButton').click(function() {
-        alert('You have selected Duo mode.');
-        window.location.href = "squad-duo.html"; // Redirect to squad-duo.html for Duo mode
-      });
-    });
-  </script>
+        // Optional: Add event listeners for squad and duo buttons for future enhancements
+        document.getElementById("squadButton").addEventListener("click", function () {
+            window.location.href = "squad-duo.html"; // Redirect to squad-duo.html
+        });
+
+        document.getElementById("duoButton").addEventListener("click", function () {
+            window.location.href = "squad-duo.html"; // Redirect to squad-duo.html
+        });
+    </script>
 </body>
+
 </html>
